@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: sec
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    database: mysql
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: daily
+    password: mdasil
+    hikari:
+      max-lifetime: 1770000
+      maximum-pool-size: 15
+    url: jdbc:mysql://localhost:3306/daily?characterEncoding=utf8&useSSL=true
+server:
+    port: 8084
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://huanuo.com:8081/eureka/
+  instance:
+    prefer-ip-address: true
+logging:
+  level: debug
