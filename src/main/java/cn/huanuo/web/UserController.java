@@ -1,5 +1,9 @@
 package cn.huanuo.web;
 
+import cn.huanuo.dao.sys.SysReSourceRepository;
+import cn.huanuo.dao.sys.SysRoleRepository;
+import cn.huanuo.entity.SysResource;
+import cn.huanuo.entity.SysRole;
 import cn.huanuo.entity.SysUser;
 import cn.huanuo.service.sys.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +21,13 @@ public class UserController {
 
     @Autowired
     UserService userService;
+
+
+    @Autowired
+    SysReSourceRepository sysReSourceRepository;
+
+    @Autowired
+    SysRoleRepository sysRoleRepository;
 
 
     @RequestMapping("/")
@@ -44,4 +55,18 @@ public class UserController {
     public List<SysUser> getUsers() {
         return userService.getUsers();
     }
+
+    @ResponseBody
+    @GetMapping("resources")
+    public List<SysResource> getResources() {
+        return sysReSourceRepository.findAll();
+    }
+
+    @ResponseBody
+    @GetMapping("roles")
+    public List<SysRole> getRoles() {
+        return sysRoleRepository.findAll();
+    }
+
 }
+

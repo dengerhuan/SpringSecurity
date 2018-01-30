@@ -1,6 +1,6 @@
 package cn.huanuo.service.sys;
 
-import cn.huanuo.dao.SysUserRepository;
+import cn.huanuo.dao.sys.SysUserRepository;
 import cn.huanuo.entity.SysUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -24,5 +24,4 @@ public class CustomUserService implements UserDetailsService {
         System.out.println(user.getRoles());
         return user;
     }
-
 }

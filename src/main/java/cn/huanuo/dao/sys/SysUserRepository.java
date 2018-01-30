@@ -1,4 +1,4 @@
-package cn.huanuo.dao;
+package cn.huanuo.dao.sys;
 
 import cn.huanuo.entity.SysUser;
 import org.springframework.data.jpa.repository.JpaRepository;
