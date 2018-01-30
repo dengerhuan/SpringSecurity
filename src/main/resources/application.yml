@@ -6,7 +6,6 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
-    database: mysql
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     username: daily

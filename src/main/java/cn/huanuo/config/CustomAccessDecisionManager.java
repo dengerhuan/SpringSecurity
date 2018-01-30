@@ -22,9 +22,10 @@ public class CustomAccessDecisionManager implements AccessDecisionManager {
         Iterator<ConfigAttribute> ite = collection.iterator();
         while (ite.hasNext()) {
 
+
             ConfigAttribute attribute = ite.next();
             String rolename = attribute.getAttribute();
-
+            System.out.println(rolename);
             for (GrantedAuthority ga : authentication.getAuthorities()) {
                 if (rolename.trim().equals(ga.getAuthority().trim()))
                     return;

@@ -20,7 +20,7 @@ public class CustomUserService implements UserDetailsService {
         SysUser user = sysUserRepository.findByUsername(s);
 
         if (user == null)
-            throw new UsernameNotFoundException("user not exists");
+            throw new UsernameNotFoundException("user does not exist");
         System.out.println(user.getRoles());
         return user;
     }

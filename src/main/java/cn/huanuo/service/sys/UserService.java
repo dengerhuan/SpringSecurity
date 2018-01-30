@@ -5,6 +5,7 @@ import cn.huanuo.entity.SysUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -13,6 +14,12 @@ public class UserService {
     SysUserRepository sysUserRepository;
 
     public List<SysUser> getUsers() {
-        return sysUserRepository.findAll();
+        List<SysUser> users = sysUserRepository.findAll();
+        List<SysUser> result = new ArrayList<>();
+        for (SysUser user : users) {
+            user.setPassword(null);
+            result.add(user);
+        }
+        return result;
     }
 }

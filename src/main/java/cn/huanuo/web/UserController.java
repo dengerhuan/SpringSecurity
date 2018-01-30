@@ -5,6 +5,7 @@ import cn.huanuo.dao.sys.SysRoleRepository;
 import cn.huanuo.entity.SysResource;
 import cn.huanuo.entity.SysRole;
 import cn.huanuo.entity.SysUser;
+import cn.huanuo.service.sys.CustomInvocationSecurityMetadataSourceService;
 import cn.huanuo.service.sys.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -66,6 +67,17 @@ public class UserController {
     @GetMapping("roles")
     public List<SysRole> getRoles() {
         return sysRoleRepository.findAll();
+    }
+
+
+    @Autowired
+    CustomInvocationSecurityMetadataSourceService customInvocationSecurityMetadataSourceService;
+
+    @ResponseBody
+    @GetMapping("refreshusercaches")
+    public Integer refreshRoles() {
+        customInvocationSecurityMetadataSourceService.loadResource();
+        return 200;
     }
 
 }
